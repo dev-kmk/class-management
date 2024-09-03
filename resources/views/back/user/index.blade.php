@@ -46,7 +46,7 @@
                                 <div class="col-md-3">
                                     09454239493, 093432433223
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 d-flex column-gap-2">
                                     <a href="#" class="btn btn-success btn-sm" title="View"><i class="bi bi-eye"></i> View</a>
                                     <a href="#" class="btn btn-primary btn-sm" title="Edit"><i class="bi bi-pencil-square"></i> Edit</a>
                                     <a href="#" class="btn btn-danger btn-sm" title="Delete"><i class="bi bi-trash3"></i> Delete</a>
