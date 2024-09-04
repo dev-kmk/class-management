@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="row mb-3">
@@ -40,6 +40,22 @@
                         </div>
 
                         <div class="row mb-3">
+                            <label for="phone" class="col-md-4 col-form-label text-md-end">{{ __('Phone Number') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="phone" type="text" class="form-control" name="email" value="{{ old('phone') }}" required autocomplete="phone">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="avatar" class="col-md-4 col-form-label text-md-end">{{ __('Profile Photo') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="avatar" type="file" class="form-control" name="email" value="{{ old('avatar') }}" required>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
@@ -61,13 +77,14 @@
                             </div>
                         </div>
 
-                        <div class="row mb-0">
+                        <div class="row mb-4">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
                             </div>
                         </div>
+                        <p class="text-center">If you already have an account, please go to <a href="{{route('login')}}">Login</a>.</p>
                     </form>
                 </div>
             </div>
