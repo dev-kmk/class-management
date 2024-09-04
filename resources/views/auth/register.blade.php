@@ -43,7 +43,7 @@
                             <label for="phone" class="col-md-4 col-form-label text-md-end">{{ __('Phone Number') }}</label>
 
                             <div class="col-md-6">
-                                <input id="phone" type="text" class="form-control" name="email" value="{{ old('phone') }}" required autocomplete="phone">
+                                <input id="phone" type="text" class="form-control" name="phone" value="{{ old('phone') }}" autocomplete="phone">
                             </div>
                         </div>
 
@@ -51,7 +51,7 @@
                             <label for="avatar" class="col-md-4 col-form-label text-md-end">{{ __('Profile Photo') }}</label>
 
                             <div class="col-md-6">
-                                <input id="avatar" type="file" class="form-control" name="email" value="{{ old('avatar') }}" required>
+                                <input id="avatar" type="file" class="form-control" name="avatar" value="{{ old('avatar') }}">
                             </div>
                         </div>
 

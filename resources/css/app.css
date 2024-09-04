@@ -1,3 +1,11 @@
 main{
-    background: linear-gradient(137deg, #a5d2ef, #8694db, #b08ee2);
+    /* background: linear-gradient(137deg, #a5d2ef, #8694db, #b08ee2); */
+    min-height: 100vh;
+}
+
+.user-index .avatar {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
 }
