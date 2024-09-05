@@ -12,4 +12,10 @@ class UserController extends Controller
 
         return view('back.user.index', compact('users'));
     }
+
+    public function destroy(string $id){
+        $user = User::find($id)->delete();
+
+        return redirect('users')->with('message', 'User deleted successfully.');
+    }
 }

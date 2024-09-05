@@ -17,6 +17,12 @@
                 </div>
             </div>
             <div class="body mt-4 py-2">
+                @if(session('message'))
+                    <div class="alert alert-primary alert-dismissible fade show mb-4" role="alert">
+                        {{ session('message') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
                 <div class="list-group shadow">
                     <div class="list-group-item active">
                         <div class="row">
@@ -56,9 +62,13 @@
                                     @endif
                                 </div>
                                 <div class="col-md-3 d-flex column-gap-2">
-                                    <a href="#" class="btn btn-outline-success btn-sm" title="View"><i class="bi bi-eye"></i> View</a>
-                                    <a href="#" class="btn btn-outline-primary btn-sm" title="Edit"><i class="bi bi-pencil-square"></i> Edit</a>
-                                    <a href="#" class="btn btn-danger btn-sm" title="Delete"><i class="bi bi-trash3"></i> Delete</a>
+                                    <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <a href="#" class="btn btn-outline-success btn-sm" title="View"><i class="bi bi-eye"></i> View</a>
+                                        <a href="#" class="btn btn-outline-primary btn-sm" title="Edit"><i class="bi bi-pencil-square"></i> Edit</a>
+                                        <button class="btn btn-danger btn-sm" title="Delete" onclick="return confirm('Are you sure you want to delete?')"><i class="bi bi-trash3"></i> Delete</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
