@@ -6,7 +6,7 @@
             <div class="head">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h5 class="fw-bold">All Users (125)</h3>
+                        <h5 class="fw-bold">All Users ({{ $users->count() }})</h3>
                     </div>
                     <div class="col-sm-6 d-flex column-gap-3 justify-content-end">
                         <div class="search">
@@ -65,7 +65,7 @@
                                     <form action="{{ route('users.destroy', $user->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <a href="#" class="btn btn-outline-success btn-sm" title="View"><i class="bi bi-eye"></i> View</a>
+                                        <a href="{{ route('users.show', $user->id) }}" class="btn btn-outline-success btn-sm" title="View"><i class="bi bi-eye"></i> View</a>
                                         <a href="#" class="btn btn-outline-primary btn-sm ms-2" title="Edit"><i class="bi bi-pencil-square"></i> Edit</a>
                                         <button class="btn btn-danger btn-sm ms-2" title="Delete" onclick="return confirm('Are you sure you want to delete?')"><i class="bi bi-trash3"></i> Delete</button>
                                     </form>

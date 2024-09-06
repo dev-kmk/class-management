@@ -13,6 +13,12 @@ class UserController extends Controller
         return view('back.user.index', compact('users'));
     }
 
+    public function show(string $id){
+        $user = User::find($id);
+
+        return view('back.user.profile', compact('user'));
+    }
+
     public function destroy(string $id){
         $user = User::find($id)->delete();
 
