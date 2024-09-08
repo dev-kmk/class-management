@@ -66,7 +66,7 @@
                                         @csrf
                                         @method('DELETE')
                                         <a href="{{ route('users.show', $user->id) }}" class="btn btn-outline-success btn-sm" title="View"><i class="bi bi-eye"></i> View</a>
-                                        <a href="#" class="btn btn-outline-primary btn-sm ms-2" title="Edit"><i class="bi bi-pencil-square"></i> Edit</a>
+                                        <a href="{{ url('users/'.$user->id.'/edit') }}" class="btn btn-outline-primary btn-sm ms-2" title="Edit"><i class="bi bi-pencil-square"></i> Edit</a>
                                         <button class="btn btn-danger btn-sm ms-2" title="Delete" onclick="return confirm('Are you sure you want to delete?')"><i class="bi bi-trash3"></i> Delete</button>
                                     </form>
                                 </div>
