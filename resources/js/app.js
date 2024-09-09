@@ -1,9 +1,8 @@
 import './bootstrap';
 
-// var avatarInput = document.querySelector("#avatar-edit");
+const avatarInput = document.querySelector("#avatar-edit");
 
-document.querySelector("#avatar-edit").addEventListener("change", function() {
-    // alert("hello");
+avatarInput.addEventListener("change", function() {
     var file = this.files[0];
     console.log(this.files);
     if(file){
@@ -12,3 +11,7 @@ document.querySelector("#avatar-edit").addEventListener("change", function() {
         previewElement.src = previewSrc;
     }
 });
+
+document.querySelector("#avatar-edit-btn").onclick = () => {
+    avatarInput.click();
+}
