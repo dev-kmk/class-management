@@ -15,7 +15,7 @@
                 <div class="col-lg-4 col-xxl-3">
                     <div class="card text-bg-primary mb-3 px-1">
                         <div class="card-header position-relative text-center py-4">
-                            <a href="{{ url('users/'.$user->id.'/edit')}}" class="go-edit-btn"><i class="bi bi-pencil-square"></i> Edit</a>
+                            <a href="{{ route('users.edit', $user->id) }}" class="go-edit-btn"><i class="bi bi-pencil-square"></i> Edit</a>
                             @if($user->avatar)
                                 <img src="{{ '/avatars/'.$user->avatar }}" class="img-fluid avatar shadow">
                             @else

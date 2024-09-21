@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 
 class UserController extends Controller
 {
+
     public function index(){
 
         $users = User::paginate(10);
@@ -38,7 +40,9 @@ class UserController extends Controller
         ]);
 
         if(request()->hasfile('avatar')){
-            $avatarName = time().'.'.request()->avatar->getClientOriginalExtension();
+            $avatarOriginalName = request()->avatar->getClientOriginalName();
+            $avatarName = str_replace(" ", "-", $avatarOriginalName);
+
             request()->avatar->move(public_path('avatars'), $avatarName);
         }
 
@@ -51,12 +55,17 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect('users/'.$id)->with('message', 'Profile Updated Successfully.');
+        return redirect('admin/users/'.$id)->with('message', 'Profile Updated Successfully.');
     }
 
     public function destroy(string $id){
         $user = User::find($id)->delete();
 
-        return redirect('users')->with('message', 'User deleted successfully.');
+        return redirect('admin/users')->with('message', 'User deleted successfully.');
     }
+
+    public function deleteOldImage(){
+        Storage::delete('/public/avatars/'.auth()->user()->avatar);
+    }
+
 }
