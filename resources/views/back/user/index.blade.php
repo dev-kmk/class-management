@@ -51,7 +51,11 @@
                                     </div>
                                 </div>
                                 <div class="col-md-2">
-                                    <h5><span class="badge text-bg-primary"> Manager </span></h5>
+                                    <h5>
+                                        @foreach($user->roles as $role)
+                                            <span class="badge text-bg-primary"> {{ $role->name }} </span>
+                                        @endforeach
+                                    </h5>
                                     
                                 </div>
                                 <div class="col-md-3">

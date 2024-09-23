@@ -80,6 +80,17 @@
                         </div>
                     </div>
 
+                    <div class="row mb-4">
+                        <label for="role" class="col-md-3 col-form-label">User Role</label>
+                        <div class="col-md-7">
+                            <select name="role" class="form-select" id="">
+                                @foreach($roles as $role)
+                                    <option> {{ $role->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
                     <div class="row my-4">
                         <div class="col-md-6 offset-md-3">
                             <button type="submit" class="btn btn-success">

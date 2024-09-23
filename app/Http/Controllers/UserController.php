@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -26,8 +27,9 @@ class UserController extends Controller
 
     public function edit(string $id){
         $user = User::find($id);
+        $roles = Role::all();
 
-        return view('back.user.edit', compact('user'));
+        return view('back.user.edit', compact('user', 'roles'));
     }
 
     public function update(Request $request, $id){
