@@ -83,12 +83,19 @@
                     <div class="row mb-4">
                         <label for="role" class="col-md-3 col-form-label">User Role</label>
                         <div class="col-md-7">
-                            <select name="role" class="form-select" id="">
+                            <select name="role" class="form-select">
                                 @foreach($roles as $role)
-                                    <option> {{ $role->name }}</option>
+                                    <option value={{ $role->id }}
+                                        @foreach($user->roles as $user_role)
+                                            @if($user_role->id == $role->id)
+                                             selected
+                                            @endif
+                                        @endforeach
+                                    > {{ $role->name }}</option>
                                 @endforeach
                             </select>
                         </div>
+                        
                     </div>
 
                     <div class="row my-4">

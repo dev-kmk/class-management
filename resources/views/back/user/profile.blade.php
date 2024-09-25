@@ -22,7 +22,9 @@
                                 <img src="/avatars/user.png" class="avatar shadow">
                             @endif
                             <h5 class="mt-3">{{ $user->name }}</h5>
-                            <h6 class="opacity-75">Teacher</h6>
+                            @foreach($user->roles as $user_role)
+                            <span class="badge text-bg-light">{{ $user_role->name }}</span>
+                            @endforeach
                         </div>
                         <div class="card-body">
                             <div class="info d-flex column-gap-2 mb-2">

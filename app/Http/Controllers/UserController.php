@@ -33,12 +33,15 @@ class UserController extends Controller
     }
 
     public function update(Request $request, $id){
+
+        print_r($request->role);
         
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => 'required',
             'phone' => 'required',
             'avatar' => ['image'],
+            'role' => 'required'
         ]);
 
         if(request()->hasfile('avatar')){
@@ -54,6 +57,7 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->phone = $request->phone;
         $user->avatar = $avatarName ?? $user->avatar;
+        $user->roles()->sync($request->role);
 
         $user->save();
 
