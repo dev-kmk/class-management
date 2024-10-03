@@ -3,6 +3,34 @@ main{
     min-height: 100vh;
 }
 
+a{
+    text-decoration: unset !important;
+}
+
+header{
+    padding: 12px 0;
+}
+.main-logo {
+    width: 100%;
+    max-width: 140px;
+    display: block;
+    margin: auto;
+}
+
+/* Dashboard Menu */
+.dash-menu ul {
+    list-style: none;
+    padding: 0;
+}
+.dash-menu ul li a {
+    width: 100%;
+    display: inline-block;
+    padding: 8px 20px;
+    margin: 5px 0;
+    color: #222;
+    font-weight: 600;
+}
+
 .user-index .avatar {
     width: 60px;
     height: 60px;
