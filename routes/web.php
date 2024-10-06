@@ -19,24 +19,16 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
-// Route::middleware('auth')->group(function(){
-//     Route::resource('teachers', TeachersController::class);
-
-//     Route::resource('users', UserController::class);
-// });
-
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     Route::resource('teachers', TeachersController::class);
 
     Route::resource('users', UserController::class);
 
-    Route::get('/roles', [RoleController::class, 'index']);
+    Route::get('/roles', [RoleController::class, 'index'])->middleware('manager');
 
-    Route::get('/manager', [App\Http\Controllers\ManagerController::class, 'index']);
+    Route::get('/manager', [App\Http\Controllers\ManagerController::class, 'index'])->middleware('manager');
 
     Route::get('/class-manager', [App\Http\Controllers\ClassManagerController::class, 'index']);
-
     Route::get('/teacher', [App\Http\Controllers\TeacherController::class, 'index']);
 
     Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'index']);
